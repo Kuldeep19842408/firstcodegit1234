@@ -1,15 +1,15 @@
-variable "rgx" {}
-variable "stx" {}
+variable "rg1" {}
+variable "st1" {}
 
 resource "azurerm_resource_group" "rg" {
-    for_each = var.rgx
+    for_each = var.rg1
 
     name = each.value.name
     location = each.value.location
 }
 
 resource "azurerm_storage_account" "storage" {
-    for_each = var.stx
+    for_each = var.st1
     name = each.value.name
     location = each.value.location
     resource_group_name = each.value.resource_group_name
